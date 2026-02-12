@@ -6,11 +6,13 @@ import lizaAvatar from "@/assets/liza-avatar.jpg";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background glow */}
       <div 
         className="absolute inset-0 opacity-50"
         style={{ background: "var(--gradient-glow)" }}
       />
-      
+
+      {/* Floating text */}
       <motion.div
         className="absolute top-20 left-10 text-muted-foreground/20 font-mono text-sm hidden md:block"
         animate={{ y: [0, -10, 0] }}
@@ -33,6 +35,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
           className="flex flex-col lg:flex-row items-center gap-12"
         >
+          {/* Avatar */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -57,6 +60,7 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
+          {/* Text info */}
           <div className="text-center lg:text-left flex-1">
             <p className="font-mono text-primary mb-4 text-sm md:text-base">
               Bonjour, je suis
@@ -75,6 +79,7 @@ const HeroSection = () => {
               Étudiante en Master Informatique (Génie Logiciel), je cherche une alternance pour <span className="text-primary font-medium">septembre 2026</span> en développement Back-end et Front-end. Passionnée par la conception de solutions web modulaires et performantes, je souhaite contribuer à des projets concrets dans un environnement Agile.
             </p>
 
+            {/* Contact info */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary" />
@@ -86,6 +91,7 @@ const HeroSection = () => {
               </div>
             </div>
 
+            {/* Social links */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8">
               <motion.a
                 href="https://github.com/lizabou"
@@ -117,6 +123,7 @@ const HeroSection = () => {
               </motion.a>
             </div>
 
+            {/* Buttons */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-4">
               <Button asChild size="lg" className="group">
                 <a href="#contact">
@@ -130,10 +137,31 @@ const HeroSection = () => {
                   <ChevronDown className="w-4 h-4 ml-2 group-hover:translate-y-1 transition-transform" />
                 </a>
               </Button>
+              <motion.div
+                animate={{ 
+                  scale: [1, 1.05, 1],
+                  boxShadow: [
+                    "0 0 0px hsl(215 80% 45% / 0)",
+                    "0 0 20px hsl(215 80% 45% / 0.4)",
+                    "0 0 0px hsl(215 80% 45% / 0)"
+                  ]
+                }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="rounded-lg"
+              >
+                <Button asChild size="lg" className="group relative overflow-hidden bg-gradient-to-r from-primary to-[hsl(230,70%,55%)] text-primary-foreground border-0 shadow-lg">
+                  {/* ✅ Correction du lien : sans /public */}
+                  <a href="/Liza-BOUROUINA-CV-Alternance_dev.pdf" target="_blank" rel="noopener noreferrer">
+                    <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
+                    Voir mon CV
+                  </a>
+                </Button>
+              </motion.div>
             </div>
           </div>
         </motion.div>
 
+        {/* Scroll down */}
         <motion.div
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
